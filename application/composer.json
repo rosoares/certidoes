@@ -1,0 +1,12 @@
+{
+    "name": "xxgui/application",
+    "authors": [
+        {
+            "name": "Rodrigo Soares",
+            "email": "rodrigosoares8899@gmail.com"
+        }
+    ],
+    "require": {
+    	"wixel/gump": "dev-master"
+    }
+}

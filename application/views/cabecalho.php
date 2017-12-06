@@ -47,11 +47,15 @@
 
     <header class="bg-primary text-white">
       <div class="container text-center">
-        <h1>Solicitação de certidão de <?php echo $titulo ?> </h1>
-        <p class="lead">Você faz a sua solicitação e recebe sem sair de casa !</p>
+          <?php if ($this->uri->segment(1) != 'buscar'){ ?>
+            <h1>Solicitação de certidão de <?php echo $titulo ?> </h1>
+            <p class="lead">Você faz a sua solicitação e recebe sem sair de casa !</p>
+          <?php } else { ?>
+              <h1>Acompanhar Status do Pedido</h1>
+          <?php } ?>
       </div>
     </header>
-    <?php 
+    <?php
       if ($titulo == "Óbito") {
         $titulo = "Obito";
       }
@@ -59,6 +63,7 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $("#cpf").inputmask({"mask": "999.999.999-99"});
+        $("#cpfsol").inputmask({"mask": "999.999.999-99"});
         $("#data").inputmask("99/99/9999");
         $("#telefone").inputmask("(99) 99999-9999");
       })

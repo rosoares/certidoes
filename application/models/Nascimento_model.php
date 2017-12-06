@@ -22,4 +22,11 @@ class Nascimento_model extends CI_Model{
         return true;
 	}
 
+    public function busca($id, $cpf){
+        $this->db->select('cpf, nome, nome_mae, nome_pai, status');
+        $this->db->where('id', $id);
+        $this->db->where('cpf', $cpf);
+        return $this->db->get($this->tabela)->row();
+    }
+
 }

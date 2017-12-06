@@ -26,6 +26,9 @@ class Certidoes extends CI_Controller {
 			if ($pagina == 'nascimento') {
 				$dados_pagina['titulo'] = "Nascimento";	
 			}
+			if ($pagina == 'buscar'){
+			    $dados_pagina['titulo'] = 'Acompanhar Status da Certidão';
+            }
 			
 			$this->load->view('cabecalho', $dados_pagina);
 			$this->load->view($pagina);
@@ -42,6 +45,12 @@ class Certidoes extends CI_Controller {
 		else if ($pagina == 'certidaoNascimento') {
 			$this->certidaoNascimento();
 		}
+		else if ($pagina == 'buscar'){
+		    $dados_pagina['titulo'] = "Acompanhar Status do Pedido";
+		    $this->load->view('cabecalho', $dados_pagina);
+		    $this->load->view($pagina);
+            $this->load->view('rodape');
+        }
 
 		else{
 			show_404();
@@ -237,6 +246,72 @@ class Certidoes extends CI_Controller {
 		}
 		
 	}
+
+	public function Buscar(){
+	    $id = $this->input->post('id', TRUE);
+	    $tipo = $this->input->post('tipo', TRUE);
+	    $cpf = $this->input->post('cpf', TRUE);
+        $html = '';
+	    switch ($tipo){
+            case 'C':
+                $dados = $this->casamento->busca($id, $cpf);
+                if (!empty($dados)){
+                    $html = '
+                    <div class="row">
+                        <h5 class="col-sm-4">CPF do solicitante:</h5><p id="cpfresult" class="col-sm-8">'.$dados->cpf.'</p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Nome do Noivo:</h5><p id="noivoresult" class="col-sm-8"> '.$dados->nome_noivo.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Nome da Noiva:</h5><p id="nomenoiva" class="col-sm-8">'.$dados->nome_noiva.'</p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status.' </p>
+                    </div>' ;
+                }
+                break;
+
+            case 'O':
+                $dados = $this->obito->busca($id, $cpf);
+                if (!empty($dados)){
+                    $html = '
+                   <div class="row">
+                        <h5 class="col-sm-4">CPF do solicitante:</h5><p id="cpfresult" class="col-sm-8">'.$dados->cpf.'</p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Nome do Noivo:</h5><p id="noivoresult" class="col-sm-8"> '.$dados->nome_falecido.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status.' </p>
+                    </div>';
+                }
+                break;
+            case 'N':
+                $dados = $this->nascimento->busca($id, $cpf);
+                if (!empty($dados)){
+                    $html = '
+                    <div class="row">
+                        <h5 class="col-sm-4">CPF do solicitante:</h5><p id="cpfresult" class="col-sm-8">'.$dados->cpf.'</p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Nome do Noivo:</h5><p id="noivoresult" class="col-sm-8"> '.$dados->nome.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Nome do Noivo:</h5><p id="noivoresult" class="col-sm-8"> '.$dados->nome_mae.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Nome da Noiva:</h5><p id="nomenoiva" class="col-sm-8">'.$dados->nome_pai.'</p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status.' </p>
+                    </div>';
+                }
+                break;
+        }
+
+        echo $html;
+    }
 
 	public function PagSeguro($tipo_certidao, $preco, $id_pedido)
 	{

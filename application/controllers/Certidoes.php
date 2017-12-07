@@ -267,7 +267,7 @@ class Certidoes extends CI_Controller {
                         <h5 class="col-sm-4">Nome da Noiva:</h5><p id="nomenoiva" class="col-sm-8">'.$dados->nome_noiva.'</p>
                     </div>
                     <div class="row">
-                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status.' </p>
+                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status_pedido.' </p>
                     </div>' ;
                 }
                 break;
@@ -283,7 +283,7 @@ class Certidoes extends CI_Controller {
                         <h5 class="col-sm-4">Nome do Noivo:</h5><p id="noivoresult" class="col-sm-8"> '.$dados->nome_falecido.' </p>
                     </div>
                     <div class="row">
-                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status.' </p>
+                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status_pedido.' </p>
                     </div>';
                 }
                 break;
@@ -304,7 +304,7 @@ class Certidoes extends CI_Controller {
                         <h5 class="col-sm-4">Nome da Noiva:</h5><p id="nomenoiva" class="col-sm-8">'.$dados->nome_pai.'</p>
                     </div>
                     <div class="row">
-                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status.' </p>
+                        <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status_pedido.' </p>
                     </div>';
                 }
                 break;

@@ -268,6 +268,9 @@ class Certidoes extends CI_Controller {
                     </div>
                     <div class="row">
                         <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status_pedido.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Status da Entrega:</h5><p id="entrega" class="col-sm-8">'.$dados->status_entrega.'</p>
                     </div>' ;
                 }
                 break;
@@ -284,6 +287,9 @@ class Certidoes extends CI_Controller {
                     </div>
                     <div class="row">
                         <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status_pedido.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Status da Entrega:</h5><p id="entrega" class="col-sm-8">'.$dados->status_entrega.'</p>
                     </div>';
                 }
                 break;
@@ -305,6 +311,9 @@ class Certidoes extends CI_Controller {
                     </div>
                     <div class="row">
                         <h5 class="col-sm-4">Status do Pedido: </h5><p id="status" class="col-sm-8"> '.$dados->status_pedido.' </p>
+                    </div>
+                    <div class="row">
+                        <h5 class="col-sm-4">Status da Entrega:</h5><p id="entrega" class="col-sm-8">'.$dados->status_entrega.'</p>
                     </div>';
                 }
                 break;

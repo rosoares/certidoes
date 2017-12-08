@@ -55,4 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['painel'] = 'Admin';
 $route['painel/(:any)'] = 'Admin';
 $route['(:any)'] = 'Certidoes';
+$route['painel/descricaoCertidaoCasamento/(:num)'] = 'Admin/certidaoCasamento';
+$route['painel/descricaoCertidaoObito/(:num)'] = 'Admin/certidaoObito';
+$route['painel/descricaoCertidaoNascimento/(:num)'] = 'Admin/certidaoNascimento';
 $route['certidoes/certidaoCasamento'] = 'certidoes/certidaoCasamento';

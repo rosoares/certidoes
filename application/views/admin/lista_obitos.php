@@ -13,7 +13,7 @@
         <tbody>
         <?php foreach ($solicitacoes as $row): ?>
             <tr>
-                <td><?php echo $row->id ?></td>
+                <td><a href="descricaoCertidaoObito/<?php echo $row->id ?>">
                 <td><?php echo $row->cpf ?></td>
                 <td><?php echo $row->nome_falecido ?></td>
                 <td><?php echo $row->status_pedido ?></td>

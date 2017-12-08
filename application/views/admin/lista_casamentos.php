@@ -15,7 +15,7 @@
         <tbody>
         <?php foreach ($solicitacoes as $row): ?>
              <tr>
-                 <td><a href="#"> <?php echo $row->id ?></a></td>
+                 <td><a href="descricaoCertidaoCasamento/<?php echo $row->id ?>"> <?php echo $row->id ?></a></td>
                 <td><?php echo $row->cpf ?></td>
                 <td><?php echo $row->nome_noivo ?></td>
                 <td><?php echo $row->nome_noiva ?></td>
